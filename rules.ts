@@ -8,7 +8,7 @@ const rules: KarabinerRules[] = [
     description: "Hyper Key (⌃⌥⇧⌘)",
     manipulators: [
       {
-        description: "Caps Lock -> Hyper Key",
+        description: "Caps lock -> Hyper Key",
         from: {
           key_code: "caps_lock",
           modifiers: {
@@ -33,26 +33,26 @@ const rules: KarabinerRules[] = [
         ],
         to_if_alone: [
           {
-            key_code: "escape",
+            key_code: "delete_or_backspace",
           },
         ],
         type: "basic",
       },
-      //      {
-      //        type: "basic",
-      //        description: "Disable CMD + Tab to force Hyper Key usage",
-      //        from: {
-      //          key_code: "tab",
-      //          modifiers: {
-      //            mandatory: ["left_command"],
-      //          },
-      //        },
-      //        to: [
-      //          {
-      //            key_code: "tab",
-      //          },
-      //        ],
-      //      },
+      {
+        description: "Right Shift -> Left Ctrl",
+        from: {
+          key_code: "right_shift",
+          modifiers: {
+            optional: ["any"],
+          },
+        },
+        to: [
+          {
+            key_code: "left_control",
+          },
+        ],
+        type: "basic",
+      },
     ],
   },
   ...createHyperSubLayers({
@@ -61,42 +61,21 @@ const rules: KarabinerRules[] = [
     ),
     // b = "B"rowse
     b: {
-      t: open("https://twitter.com"),
-      // Quarterly "P"lan
-      p: open("https://qrtr.ly/plan"),
       y: open("https://news.ycombinator.com"),
-      f: open("https://facebook.com"),
       r: open("https://reddit.com"),
+      x: open("https://x.com"),
     },
     // o = "Open" applications
     o: {
       1: app("1Password"),
-      g: app("Google Chrome"),
-      c: app("Notion Calendar"),
-      v: app("Visual Studio Code"),
-      d: app("Discord"),
-      s: app("Slack"),
-      e: app("Superhuman"),
+      a: app("Arc"),
+      c: app("Google Chrome"),
+      k: app("Kitty"),
       n: app("Notion"),
-      t: app("Terminal"),
-      // Open todo list managed via *H*ypersonic
-      h: open(
-        "notion://www.notion.so/stellatehq/7b33b924746647499d906c55f89d5026"
-      ),
-      z: app("zoom.us"),
-      // "M"essages
-      m: app("Texts"),
-      f: app("Finder"),
-      r: app("Texts"),
-      // "i"Message
+      s: app("Slack"),
+      v: app("Visual Studio Code"),
       i: app("Texts"),
-      p: app("Spotify"),
-      a: app("iA Presenter"),
-      // "W"hatsApp has been replaced by Texts
-      w: open("Texts"),
-      l: open(
-        "raycast://extensions/stellate/mxstbr-commands/open-mxs-is-shortlink"
-      ),
+      z: app("zoom.us"),
     },
 
     // w = "Window" via rectangle.app
